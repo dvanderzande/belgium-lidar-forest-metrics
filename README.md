@@ -10,6 +10,9 @@ with unreliable values.
 **Status: version 0.1.0.** All of Belgium processed and checked. The output grid (EPSG:31370, cells on multiples of
 30 m) is provisional and may change to match the grid of the species distribution model.
 
+- **Download the layers:** the files are attached to the
+  [v0.1.0 release](https://github.com/dvanderzande/belgium-lidar-forest-metrics/releases/tag/v0.1.0)
+  (GeoTIFFs, zone polygon, data description and checksums; data licence CC BY 4.0 with the source attributions below).
 - **Report** (background, methods, decisions, results, data quality, notes for modellers):
   [`docs/Belgium_LiDAR_metrics_report.pdf`](docs/Belgium_LiDAR_metrics_report.pdf)
 - **Methods in detail** (definitions, deviations from England, checks, quality layer): [`docs/methods.md`](docs/methods.md)
@@ -123,7 +126,7 @@ repository. Please cite the England model as well when you use these layers in t
 ## Citation, licence and acknowledgement
 
 - Cite this repository with the information in [`CITATION.cff`](CITATION.cff) (GitHub: "Cite this repository").
-- Code under the [MIT licence](LICENSE). The data keep the licences of their sources (above).
+- Code under the [MIT licence](LICENSE); the released layers under CC BY 4.0, with the source attributions above.
 - Parts of the code and documentation were written with the help of an AI coding assistant. All methods, results and
   checks were reviewed by the author.
 - Questions and problems: please open an issue on GitHub.
