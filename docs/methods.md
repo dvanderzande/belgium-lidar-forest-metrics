@@ -93,6 +93,32 @@ first (Flanders, Brussels, Wallonia).
 
 ## 4. Deviations from England
 
+### 4.0 The input: an approximation of the EA Vegetation Object Model
+
+England computed the metrics from the EA VOM, a 1 m raster that the Environment Agency derived from the classified
+point clouds of its national LiDAR programme: only points classified as vegetation, buildings removed, vegetation
+modelled into discrete objects of at least 2.5 m (crowns filled). Belgium has no such product, so the Belgian input is
+an approximation built from the regional surface and terrain models. The metric definitions are identical.
+
+| | England (EA VOM) | Belgium (this work) |
+|---|---|---|
+| source | classified point clouds → VOM raster (by the EA) | DSM and DTM rasters of the regions, 1 m |
+| what counts as vegetation | points classified as vegetation | every height except buildings (footprint maps) and heights above 60 m |
+| tree crowns | modelled into whole objects | gaps up to 3 m filled (grey-scale closing, 4.1) |
+| below 2.5 m | 0 | 0 (same rule) |
+| metrics per 30 m cell | England R code | same definitions (Python, unit-tested) |
+
+**Why the VOM approach was not applied:** reproducing the VOM would mean reprocessing the raw point clouds
+(classifying vegetation points and modelling tree objects). That is too big a job for this delivery: about 1.5–3 TB
+of point clouds for Flanders alone (and about 850 GB for the Walloon survey of 2021–2022), and the EA's object
+modelling is not published in enough detail to be reproduced exactly.
+
+**Effect of the approximation:** cover and the 0.3 forest threshold are comparable with England; heights in forest
+are 3–6 m higher (gap filling, 4.1); structures that are not buildings and are lower than 60 m (pylons, overhead
+lines, cranes, industrial installations) remain in a few places, mainly ports and industrial zones (4.2). A mask from
+an independent vegetation map could remove most of them in a later version. The band names keep the England names
+(`…_VOM`) so that the England scripts can be reused unchanged, although the layers are not computed from the EA VOM.
+
 ### 4.1 Gap filling of leaf-off crowns (3 m closing)
 
 In the leaf-off DHMV II survey the laser reaches the ground through bare deciduous crowns. In a pilot in the Sonian

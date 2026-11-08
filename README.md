@@ -10,6 +10,9 @@ with unreliable values.
 **Status: version 0.1.0.** All of Belgium processed and checked. The output grid (EPSG:31370, cells on multiples of
 30 m) is provisional and may change to match the grid of the species distribution model.
 
+- **Download the layers:** the files are attached to the
+  [v0.1.0 release](https://github.com/dvanderzande/belgium-lidar-forest-metrics/releases/tag/v0.1.0)
+  (GeoTIFFs, zone polygon, data description and checksums; data licence CC BY 4.0 with the source attributions below).
 - **Report** (background, methods, decisions, results, data quality, notes for modellers):
   [`docs/Belgium_LiDAR_metrics_report.pdf`](docs/Belgium_LiDAR_metrics_report.pdf)
 - **Methods in detail** (definitions, deviations from England, checks, quality layer): [`docs/methods.md`](docs/methods.md)
@@ -27,11 +30,15 @@ Lambert 72), tiled and compressed. Every 30 m cell is computed from its 900 cano
 | 3 | `sd_height_VOM` | standard deviation of height (n − 1) |
 | 4 | `mean_height_VOM` | mean height |
 
-The 1 m canopy height is encoded like the Environment Agency Vegetation Object Model used in England: vegetation of at
-least 2.5 m keeps its height, everything else (ground, low vegetation, buildings, water) is 0 and counts in all four
-metrics. Two deviations from England, needed because the Belgian input is DSM − DTM: canopy gaps up to 3 m are
-filled (leaf-off crowns), and heights above 60 m are set to 0 (cranes, wind turbines, masts). See
-[`docs/methods.md`](docs/methods.md).
+**The input is an approximation of the England input.** England used the Environment Agency Vegetation Object Model
+(VOM), which the EA made from classified point clouds (vegetation only, crowns modelled as whole objects). Belgium
+has no such product, and reproducing it from the raw point clouds was too big a job (1.5–3 TB for Flanders alone;
+the EA processing is not published in detail). The Belgian 1 m canopy height is therefore DSM − DTM encoded like
+the VOM: vegetation of at least 2.5 m keeps its height, everything else (ground, low vegetation, buildings, water)
+is 0 and counts in all four metrics; canopy gaps up to 3 m are filled (leaf-off crowns) and heights above 60 m are
+set to 0 (cranes, wind turbines, masts). Cover and the 0.3 forest threshold are comparable with England; heights in
+forest are 3–6 m higher. The band names keep the England names (`…_VOM`) so the England scripts can be reused,
+although the layers are not computed from the EA VOM. See [`docs/methods.md`](docs/methods.md), section 4.
 
 `quality_30m_belgium.tif` (same grid, uint8, NoData 0) and `quality_zone_wallonia_2013_2014.gpkg`:
 
@@ -109,7 +116,7 @@ The repository contains no data; the scripts download it from the public service
 | data | source | licence / attribution |
 |---|---|---|
 | DHMV II DSM and DTM 1 m, GRB buildings, Flemish border | Digitaal Vlaanderen | Gratis open data licentie Vlaanderen v1.0; « Digitaal Vlaanderen » |
-| UrbIS buildings and Brussels border | Brussels Region (UrbIS, Paradigm) | open data; CC-0 stated in the catalogue (to confirm for the buildings) |
+| UrbIS buildings and Brussels border | Brussels Region (UrbIS, Paradigm) | UrbIS Open Data licence (free use; exact terms and attribution wording being confirmed with Paradigm) |
 | MNS and MNT 2013–2014, PICC buildings, Walloon border, forest mask 2018 | Service public de Wallonie | free reuse; « Sources des données : SPW » on every map or document |
 
 Maps and documents made from the layers must carry these attributions.
@@ -123,7 +130,7 @@ repository. Please cite the England model as well when you use these layers in t
 ## Citation, licence and acknowledgement
 
 - Cite this repository with the information in [`CITATION.cff`](CITATION.cff) (GitHub: "Cite this repository").
-- Code under the [MIT licence](LICENSE). The data keep the licences of their sources (above).
+- Code under the [MIT licence](LICENSE); the released layers under CC BY 4.0, with the source attributions above.
 - Parts of the code and documentation were written with the help of an AI coding assistant. All methods, results and
   checks were reviewed by the author.
 - Questions and problems: please open an issue on GitHub.
