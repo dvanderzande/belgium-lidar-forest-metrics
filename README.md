@@ -112,7 +112,7 @@ The repository contains no data; the scripts download it from the public service
 | data | source | licence / attribution |
 |---|---|---|
 | DHMV II DSM and DTM 1 m, GRB buildings, Flemish border | Digitaal Vlaanderen | Gratis open data licentie Vlaanderen v1.0; « Digitaal Vlaanderen » |
-| UrbIS buildings and Brussels border | Brussels Region (UrbIS, Paradigm) | open data; CC-0 stated in the catalogue (to confirm for the buildings) |
+| UrbIS buildings and Brussels border | Brussels Region (UrbIS, Paradigm) | UrbIS Open Data licence (free use; exact terms and attribution wording being confirmed with Paradigm) |
 | MNS and MNT 2013–2014, PICC buildings, Walloon border, forest mask 2018 | Service public de Wallonie | free reuse; « Sources des données : SPW » on every map or document |
 
 Maps and documents made from the layers must carry these attributions.
