@@ -30,11 +30,15 @@ Lambert 72), tiled and compressed. Every 30 m cell is computed from its 900 cano
 | 3 | `sd_height_VOM` | standard deviation of height (n − 1) |
 | 4 | `mean_height_VOM` | mean height |
 
-The 1 m canopy height is encoded like the Environment Agency Vegetation Object Model used in England: vegetation of at
-least 2.5 m keeps its height, everything else (ground, low vegetation, buildings, water) is 0 and counts in all four
-metrics. Two deviations from England, needed because the Belgian input is DSM − DTM: canopy gaps up to 3 m are
-filled (leaf-off crowns), and heights above 60 m are set to 0 (cranes, wind turbines, masts). See
-[`docs/methods.md`](docs/methods.md).
+**The input is an approximation of the England input.** England used the Environment Agency Vegetation Object Model
+(VOM), which the EA made from classified point clouds (vegetation only, crowns modelled as whole objects). Belgium
+has no such product, and reproducing it from the raw point clouds was too big a job (1.5–3 TB for Flanders alone;
+the EA processing is not published in detail). The Belgian 1 m canopy height is therefore DSM − DTM encoded like
+the VOM: vegetation of at least 2.5 m keeps its height, everything else (ground, low vegetation, buildings, water)
+is 0 and counts in all four metrics; canopy gaps up to 3 m are filled (leaf-off crowns) and heights above 60 m are
+set to 0 (cranes, wind turbines, masts). Cover and the 0.3 forest threshold are comparable with England; heights in
+forest are 3–6 m higher. The band names keep the England names (`…_VOM`) so the England scripts can be reused,
+although the layers are not computed from the EA VOM. See [`docs/methods.md`](docs/methods.md), section 4.
 
 `quality_30m_belgium.tif` (same grid, uint8, NoData 0) and `quality_zone_wallonia_2013_2014.gpkg`:
 

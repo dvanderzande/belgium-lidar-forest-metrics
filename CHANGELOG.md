@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+* Documentation: the difference in input with England (DSM − DTM approximating the EA VOM, and why the VOM
+  approach was not applied) is stated in the README, `docs/methods.md` (section 4.0) and the report (section 5.1);
+  download link and data licence (CC BY 4.0) in the README. No change to the code or the layers.
+
 ## 0.1.0 (2026-11-08)
 First version: the four 30 m forest-structure layers for all of Belgium and the quality layer.
 
