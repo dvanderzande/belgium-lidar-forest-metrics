@@ -1,0 +1,17 @@
+# conda env create -f environment.yml && conda activate belgium-lidar
+# Versions used for release 0.1.0; newer versions are expected to work.
+name: belgium-lidar
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy=1.24
+  - scipy=1.13
+  - pandas=2.2
+  - rasterio=1.4      # with GDAL 3.10
+  - geopandas=1.1
+  - pyogrio=0.11
+  - shapely=2.1
+  - pyproj=3.7
+  - requests=2.32
+  - matplotlib=3.8

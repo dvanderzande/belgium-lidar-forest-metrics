@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use these layers or this code, please cite it as below."
+title: "Belgium LiDAR forest metrics: 30 m forest-structure layers for Belgium"
+version: 0.1.0
+date-released: 2026-11-08
+license: MIT
+repository-code: "https://github.com/dvanderzande/belgium-lidar-forest-metrics"
+authors:
+  - family-names: "Van der Zande"
+    given-names: "Dimitry"
+    affiliation: "Institute of Natural Sciences"
+keywords:
+  - lidar
+  - forest structure
+  - canopy height
+  - species distribution modelling
+  - Belgium
+  - red wood ants

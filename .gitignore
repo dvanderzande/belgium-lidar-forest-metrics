@@ -1,0 +1,16 @@
+# Local paths (machine-specific)
+dev.env
+
+# Data and outputs live in the working folder, never in git
+*.tif
+*.tiff
+*.gpkg
+*.zip
+*.laz
+*.las
+*.vrt
+
+# Python and macOS
+__pycache__/
+*.egg-info/
+.DS_Store
